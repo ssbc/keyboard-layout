@@ -1,10 +1,12 @@
 {
   "name": "keyboard-layout",
-  "version": "2.0.13",
+  "version": "2.0.13-a",
   "description": "Read and observe the current keyboard layout on OS X.",
   "main": "./lib/keyboard-layout",
   "scripts": {
-    "test": "jasmine-focused --captureExceptions --forceexit spec"
+    "test": "prebuild-ci",
+    "install": "prebuild-install || node-gyp rebuild",
+    "prebuild": "prebuild --all --strip --verbose"
   },
   "repository": {
     "type": "git",
@@ -21,9 +23,12 @@
   ],
   "dependencies": {
     "event-kit": "^2.0.0",
-    "nan": "^2.0.0"
+    "nan": "^2.0.0",
+    "prebuild-install": "^2.4.1"
   },
   "devDependencies": {
-    "jasmine-focused": "^1.0.4"
+    "jasmine-focused": "^1.0.4",
+    "prebuild": "^7.0.0",
+    "prebuild-ci": "^2.2.3"
   }
 }
